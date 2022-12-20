@@ -22,4 +22,5 @@
     <string name="sharing_not_available">Sharing Not Available</string>
     <string name="todo">TODO</string>
     <string name="play">Play</string>
+    <string name="next_match">Next Match</string>
 </resources>

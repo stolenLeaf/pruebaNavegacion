@@ -9,11 +9,13 @@
     tools:context=".MainActivity">
 
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/tittleFragment"
-        android:name="com.example.pruebanavegacion.ui.TitleFragment"
+        android:id="@+id/MyNavHostFragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:layout="@layout/fragment_title" />
+        tools:layout="@layout/fragment_title"
+        app:navGraph="@navigation/nav"
+        app:defaultNavHost="true"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.example.pruebanavegacion.R
 import com.example.pruebanavegacion.data.model.Question
@@ -119,6 +120,7 @@ binding.submitButton.setOnClickListener @Suppress("UNUSED_ANONYMOUS_PARAMETER"){
         currentQuestion = questions[questionIndex]
         answers = currentQuestion.answers.toMutableList()
         answers.shuffle()
+        (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.title_android_trivia_question, questionIndex + 1, numQuestions)
 
     }
 }

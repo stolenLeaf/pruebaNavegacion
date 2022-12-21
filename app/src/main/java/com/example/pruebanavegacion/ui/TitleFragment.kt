@@ -25,7 +25,7 @@ private lateinit var binding :FragmentTitleBinding
     ): View {
         // Inflate the layout for this fragment
     binding=FragmentTitleBinding.inflate(inflater,container,false)
-    val view=binding.root
+        val view=binding.root
         return view
 
 //        return inflater.inflate(R.layout.fragment_title, container, false)

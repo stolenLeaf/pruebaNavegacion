@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.findNavController
 import com.example.pruebanavegacion.R
 import com.example.pruebanavegacion.data.model.Question
 import com.example.pruebanavegacion.databinding.FragmentGameBinding
@@ -101,9 +102,11 @@ binding.submitButton.setOnClickListener @Suppress("UNUSED_ANONYMOUS_PARAMETER"){
             binding.invalidateAll()
         }else{
             //ganamos, vamos al fragment de navegacion
+            v.findNavController().navigate(R.id.action_gameFragment_to_gameWonFragment)
         }
     }else{
         //perdimos, vamos al fragment de game over
+        v.findNavController().navigate(R.id.action_gameFragment_to_gameOverFragment2)
     }
     }
 }

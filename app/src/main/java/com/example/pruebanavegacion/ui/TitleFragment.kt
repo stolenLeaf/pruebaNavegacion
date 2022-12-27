@@ -22,7 +22,8 @@ private lateinit var binding :FragmentTitleBinding
         // Inflate the layout for this fragment
     binding=FragmentTitleBinding.inflate(inflater,container,false)
         val view=binding.root
-        (activity as AppCompatActivity).supportActionBar?.title =getString(R.string.android_trivia)
+        (activity as AppCompatActivity).supportActionBar?.
+        title =getString(R.string.android_trivia)
         setHasOptionsMenu(true)
         return view
 
@@ -30,7 +31,9 @@ private lateinit var binding :FragmentTitleBinding
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
             binding.playButton.setOnClickListener {v:View ->
-            Navigation.findNavController(v).navigate(TitleFragmentDirections.actionTitleFragmentToGameFragment())
+            Navigation.findNavController(v)
+                .navigate(TitleFragmentDirections
+                    .actionTitleFragmentToGameFragment())
 
 
 
@@ -43,7 +46,11 @@ private lateinit var binding :FragmentTitleBinding
         inflater.inflate(R.menu.overflow_menu, menu)
     }
 
-    @Deprecated("Deprecated in Java")
+    @Deprecated("Deprecated in Java", ReplaceWith(
+        "super.onOptionsItemSelected(item)",
+        "androidx.fragment.app.Fragment"
+    )
+    )
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return NavigationUI.onNavDestinationSelected(
             item,

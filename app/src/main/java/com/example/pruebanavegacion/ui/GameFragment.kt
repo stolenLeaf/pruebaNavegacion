@@ -67,16 +67,14 @@ class GameFragment : Fragment() {
     private var questionIndex = 0
     private val numQuestions = min((questions.size + 1) / 2, 3)
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val binding = DataBindingUtil.inflate<FragmentGameBinding>(inflater,R.layout.fragment_game,container,false)
+        val binding = DataBindingUtil
+            .inflate<FragmentGameBinding>(inflater,
+                R.layout.fragment_game,
+                container,false)
         randomizeQuestion()
     binding.game=this
     binding.submitButton.setOnClickListener @Suppress("UNUSED_ANONYMOUS_PARAMETER"){
@@ -97,11 +95,13 @@ class GameFragment : Fragment() {
             binding.invalidateAll()
         }else{
             //ganamos, vamos al fragment de navegacion
-            v.findNavController().navigate(GameFragmentDirections.actionGameFragmentToGameWonFragment(numQuestions, questionIndex ))
+            v.findNavController().navigate(GameFragmentDirections
+                .actionGameFragmentToGameWonFragment(numQuestions, questionIndex ))
         }
     }else{
         //perdimos, vamos al fragment de game over
-        v.findNavController().navigate(GameFragmentDirections.actionGameFragmentToGameOverFragment2())
+        v.findNavController().navigate(GameFragmentDirections
+            .actionGameFragmentToGameOverFragment2())
     }
     }
 }
@@ -118,7 +118,9 @@ class GameFragment : Fragment() {
         currentQuestion = questions[questionIndex]
         answers = currentQuestion.answers.toMutableList()
         answers.shuffle()
-        (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.title_android_trivia_question, questionIndex + 1, numQuestions)
+        (activity as AppCompatActivity).supportActionBar?.
+        title = getString(R.string.title_android_trivia_question,
+            questionIndex + 1, numQuestions)
 
     }
 }

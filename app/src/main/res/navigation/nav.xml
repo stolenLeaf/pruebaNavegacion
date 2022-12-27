@@ -37,7 +37,14 @@
         tools:layout="@layout/fragment_game_won" >
         <action
             android:id="@+id/action_gameWonFragment_to_gameFragment"
-            app:destination="@id/gameFragment" />
+            app:destination="@id/gameFragment"
+            app:popUpTo="@id/gameFragment" />
+        <argument
+            android:name="numQuestions"
+            app:argType="integer" />
+        <argument
+            android:name="numCorrect"
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/gameOverFragment2"
@@ -46,12 +53,13 @@
         tools:layout="@layout/fragment_game_over">
         <action
             android:id="@+id/action_gameOverFragment2_to_gameFragment"
-            app:destination="@id/gameFragment" />
+            app:destination="@id/gameFragment"
+            app:popUpTo="@id/gameFragment" />
     </fragment>
     <fragment
         android:id="@+id/aboutFragment"
         android:name="com.example.pruebanavegacion.ui.AboutFragment"
-        android:label="fragment_about"
+        android:label="@string/title_about_trivia"
         tools:layout="@layout/fragment_about" />
     <fragment
         android:id="@+id/rulesFragment"

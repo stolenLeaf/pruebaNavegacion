@@ -76,15 +76,10 @@ class GameFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val binding = DataBindingUtil.inflate<FragmentGameBinding>(
-            inflater,
-            R.layout.fragment_game,
-            container,
-            false
-        )
+        val binding = DataBindingUtil.inflate<FragmentGameBinding>(inflater,R.layout.fragment_game,container,false)
         randomizeQuestion()
     binding.game=this
-binding.submitButton.setOnClickListener @Suppress("UNUSED_ANONYMOUS_PARAMETER"){
+    binding.submitButton.setOnClickListener @Suppress("UNUSED_ANONYMOUS_PARAMETER"){
     v: View ->
     val checkedId=binding.questionRadioGroup.checkedRadioButtonId
     if(-1!=checkedId){
@@ -102,11 +97,11 @@ binding.submitButton.setOnClickListener @Suppress("UNUSED_ANONYMOUS_PARAMETER"){
             binding.invalidateAll()
         }else{
             //ganamos, vamos al fragment de navegacion
-            v.findNavController().navigate(R.id.action_gameFragment_to_gameWonFragment)
+            v.findNavController().navigate(GameFragmentDirections.actionGameFragmentToGameWonFragment(numQuestions, questionIndex ))
         }
     }else{
         //perdimos, vamos al fragment de game over
-        v.findNavController().navigate(R.id.action_gameFragment_to_gameOverFragment2)
+        v.findNavController().navigate(GameFragmentDirections.actionGameFragmentToGameOverFragment2())
     }
     }
 }

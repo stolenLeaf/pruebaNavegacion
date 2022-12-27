@@ -28,7 +28,7 @@ private lateinit var binding: FragmentGameOverBinding
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding.tryAgainButton.setOnClickListener{v:View ->
-            Navigation.findNavController(v).navigate(R.id.action_gameOverFragment2_to_gameFragment)
+            Navigation.findNavController(v).navigate(GameOverFragmentDirections.actionGameOverFragment2ToGameFragment())
         }
     }
 
